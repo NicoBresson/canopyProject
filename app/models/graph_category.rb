@@ -1,0 +1,2 @@
+class GraphCategory < ApplicationRecord
+end
