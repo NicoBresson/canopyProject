@@ -1,3 +1,3 @@
 class GraphCategory < ApplicationRecord
-  has_many: graphs
+  has_many :graphs
 end

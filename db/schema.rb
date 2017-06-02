@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602221121) do
+ActiveRecord::Schema.define(version: 20170602223118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "graph_categories", force: :cascade do |t|
+    t.string   "category_name"
+    t.text     "description"
+    t.string   "data_base_criteria"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "graphs", force: :cascade do |t|
+    t.integer  "query_id"
+    t.integer  "graph_category_id"
+    t.string   "dataset"
+    t.string   "stats"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["graph_category_id"], name: "index_graphs_on_graph_category_id", using: :btree
+    t.index ["query_id"], name: "index_graphs_on_query_id", using: :btree
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "start_time"
+    t.date     "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_queries_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +60,7 @@ ActiveRecord::Schema.define(version: 20170602221121) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "graphs", "graph_categories"
+  add_foreign_key "graphs", "queries"
+  add_foreign_key "queries", "users"
 end
