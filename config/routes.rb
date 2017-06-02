@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'graphs/show'
+
   get 'queries/show'
 
   get 'queries/new'
