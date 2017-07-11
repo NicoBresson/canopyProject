@@ -4,5 +4,18 @@
  * ------------------------------------- */
 
  .value-proposition {
+  text-align: center;
   height: 65vh;
+ }
+
+ .tool-presentation {
+  text-align: center;
+  height: 65vh;
+  background-color: $light-green;
+ }
+
+ .contact-us {
+  text-align: center;
+  height: 40vh;
+  background-color: $light;
  }
