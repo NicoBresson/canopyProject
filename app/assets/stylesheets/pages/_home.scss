@@ -74,8 +74,26 @@
   background-color: $light-green;
  }
 
- #contact-us {
-  text-align: center;
-  height: 40vh;
+
+ #contact-mail {
   background-color: $light;
+  height: 30vh;
+  padding: 20px;
+  text-align: center;
+ }
+ .demo-graph {
+  height: 500px !important;
+ }
+ #contact-mail h3 {
+  color: $gray;
+  text-align: center;
+ }
+ #contact-mail .form-inline {
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+ }
+
+#contact-mail .form-inline .form-control {
+  margin-top: 0px;
  }
