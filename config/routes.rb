@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, only: [:show]
-  resources :queries, only: [:new] do
-    resources :graph, only: [:show]
+
+  root to: 'pages#home'
+
+  #user account information
+  resources :users, only: [:show, :edit, :update]
+
+  # graphs nested in queries as the graph is the result of one query
+  resources :queries, only: [:show, :new, :create, :edit] do
+    resources :graph, only: [:show, :new, :create, :edit, :update]
   end
 end
