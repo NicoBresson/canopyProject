@@ -1,2 +1,40 @@
-<h1>Queries#new</h1>
-<p>Find me in app/views/queries/new.html.erb</p>
+
+
+<body>
+
+  <h1>Queries#new</h1>
+  <p>Find me in app/views/queries/new.html.erb</p>
+
+  <%= simple_form_for [@query] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :start_time %>
+  <%= f.submit "Generate datapoints", class: "btn btn-primary" %>
+  <% end %>
+
+
+  <!-- preparing a DOM with width and height for ECharts -->
+  <div id="main" style="width: 600px;height:400px;"></div>
+
+
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    // initialize echarts instance with prepared DOM
+var myChart = echarts.init(document.getElementById('main'));
+// draw chart
+myChart.setOption({
+  title: { text: 'ECharts entry example' },
+  tooltip: {},
+  xAxis: {
+    data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+  },
+  yAxis: {},
+  series: [{
+    name: 'sales',
+    type: 'bar',
+    data: [5, 20, 36, 10, 10, 20]
+  }]
+});
+  <% end %>
+<% end %>
+
+</body>
