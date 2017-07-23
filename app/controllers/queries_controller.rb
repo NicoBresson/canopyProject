@@ -3,6 +3,7 @@ class QueriesController < ApplicationController
   end
 
   def new
+    @query = Query.new()
   end
 
   def create
