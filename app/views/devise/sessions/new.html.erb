@@ -1,15 +1,21 @@
-<h2>Log in</h2>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(240, 245, 231,0.5) 0%, rgba(71,140,125,0.5) 50%), url('https://static.pexels.com/photos/38136/pexels-photo-38136.jpeg')">
+    <div class="authentification-content">
+      <h2>Log in</h2>
+      <div class="authentificaiton-form">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <div class="form-actions">
+            <%= f.button :submit, "Log in"%>
+          </div>
+        <%= render "devise/shared/links" %>
+        <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= render 'shared/footer' %>
