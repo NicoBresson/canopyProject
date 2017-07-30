@@ -56,6 +56,30 @@
 
 <div id="tool-presentation">
   <p>Data visualization example to be presented here</p>
+    <!-- preparing a DOM with width and height for ECharts -->
+  <div id="main" style="width: 600px;height:400px;"></div>
+
+
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    // initialize echarts instance with prepared DOM
+var myChart = echarts.init(document.getElementById('main'));
+// draw chart
+myChart.setOption({
+  title: { text: 'Company X, Sales evolution' },
+  tooltip: {},
+  xAxis: {
+    data: ["2012","2013","2014","2015","2016","2017"]
+  },
+  yAxis: {},
+  series: [{
+    name: 'sales',
+    type: 'bar',
+    data: [5, 20, 36, 50, 45, 55]
+  }]
+});
+  <% end %>
+<% end %>
 </div>
 
 <div id="contact-mail">
