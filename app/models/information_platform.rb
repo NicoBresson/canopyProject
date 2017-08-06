@@ -1,0 +1,2 @@
+class InformationPlatform < ApplicationRecord
+end
