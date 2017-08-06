@@ -1,0 +1,30 @@
+.authentificaiton-form{
+  flex: 1 1 auto;
+  padding: 20px 30px 30px;
+}
+
+
+.authentification-content {
+    background-color: #fff;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 320px;
+    position: relative;
+    width: 100%;
+    color: $gray;
+}
+
+.form-inputs {
+  display: block;
+  position: relative;
+}
+
+.form-actions{
+    border-top-style: solid;
+    border-top-width: 1px;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-color: #F2F6FA;
+}
