@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806102908) do
+ActiveRecord::Schema.define(version: 20170806105525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acquisitions", force: :cascade do |t|
+    t.string   "target_name"
+    t.date     "acquisition_date"
+    t.integer  "transaction_value"
+    t.string   "transaction_currency"
+    t.integer  "company_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["company_id"], name: "index_acquisitions_on_company_id", using: :btree
+  end
 
   create_table "business_segments", force: :cascade do |t|
     t.integer  "company_id"
@@ -42,6 +53,14 @@ ActiveRecord::Schema.define(version: 20170806102908) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "currencies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "symbol"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "facts", force: :cascade do |t|
     t.string   "value"
     t.time     "time_stamp"
@@ -51,7 +70,9 @@ ActiveRecord::Schema.define(version: 20170806102908) do
     t.integer  "source_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "currency_id"
     t.index ["company_id"], name: "index_facts_on_company_id", using: :btree
+    t.index ["currency_id"], name: "index_facts_on_currency_id", using: :btree
     t.index ["indicator_id"], name: "index_facts_on_indicator_id", using: :btree
     t.index ["period_id"], name: "index_facts_on_period_id", using: :btree
     t.index ["source_id"], name: "index_facts_on_source_id", using: :btree
@@ -141,6 +162,8 @@ ActiveRecord::Schema.define(version: 20170806102908) do
     t.integer  "transaction_value"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_targets_on_company_id", using: :btree
   end
 
   create_table "tickers", force: :cascade do |t|
@@ -171,11 +194,13 @@ ActiveRecord::Schema.define(version: 20170806102908) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "acquisitions", "companies"
   add_foreign_key "business_segments", "companies"
   add_foreign_key "business_segments", "sectors"
   add_foreign_key "closed_acquisitions", "companies"
   add_foreign_key "closed_acquisitions", "targets"
   add_foreign_key "facts", "companies"
+  add_foreign_key "facts", "currencies"
   add_foreign_key "facts", "indicators"
   add_foreign_key "facts", "periods"
   add_foreign_key "facts", "sources"
@@ -184,6 +209,7 @@ ActiveRecord::Schema.define(version: 20170806102908) do
   add_foreign_key "market_areas", "geographies"
   add_foreign_key "queries", "users"
   add_foreign_key "sectors", "industries"
+  add_foreign_key "targets", "companies"
   add_foreign_key "tickers", "companies"
   add_foreign_key "tickers", "information_platforms"
 end
