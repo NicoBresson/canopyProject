@@ -18,11 +18,14 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'gentelella-rails'
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 
 gem 'cloudinary'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+
+gem 'forest_liana'
 
 group :development, :test do
   gem 'binding_of_caller'
