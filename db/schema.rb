@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816203301) do
+ActiveRecord::Schema.define(version: 20170816203735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(version: 20170816203301) do
     t.datetime "updated_at",   null: false
     t.index ["company_id"], name: "index_market_areas_on_company_id", using: :btree
     t.index ["geography_id"], name: "index_market_areas_on_geography_id", using: :btree
+  end
+
+  create_table "peers", force: :cascade do |t|
+    t.time     "time_stamp"
+    t.string   "ticker_company_a"
+    t.string   "ticker_company_a_information_platform_id"
+    t.string   "ticker_company_b"
+    t.string   "ticker_company_b_information_platform_id"
+    t.date     "date"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "periods", force: :cascade do |t|
