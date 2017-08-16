@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 20170816203735) do
     t.index ["sector_id"], name: "index_business_segments_on_sector_id", using: :btree
   end
 
-  create_table "closed_acquisitions", force: :cascade do |t|
-    t.integer  "company_id"
-    t.integer  "target_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_closed_acquisitions_on_company_id", using: :btree
-    t.index ["target_id"], name: "index_closed_acquisitions_on_target_id", using: :btree
-  end
-
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -168,16 +159,6 @@ ActiveRecord::Schema.define(version: 20170816203735) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "targets", force: :cascade do |t|
-    t.string   "target_name"
-    t.date     "acquisition_date"
-    t.integer  "transaction_value"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "company_id"
-    t.index ["company_id"], name: "index_targets_on_company_id", using: :btree
-  end
-
   create_table "tickers", force: :cascade do |t|
     t.string   "value"
     t.integer  "company_id"
@@ -209,8 +190,6 @@ ActiveRecord::Schema.define(version: 20170816203735) do
   add_foreign_key "acquisitions", "companies"
   add_foreign_key "business_segments", "companies"
   add_foreign_key "business_segments", "sectors"
-  add_foreign_key "closed_acquisitions", "companies"
-  add_foreign_key "closed_acquisitions", "targets"
   add_foreign_key "facts", "companies"
   add_foreign_key "facts", "currencies"
   add_foreign_key "facts", "indicators"
@@ -221,7 +200,6 @@ ActiveRecord::Schema.define(version: 20170816203735) do
   add_foreign_key "market_areas", "geographies"
   add_foreign_key "queries", "users"
   add_foreign_key "sectors", "industries"
-  add_foreign_key "targets", "companies"
   add_foreign_key "tickers", "companies"
   add_foreign_key "tickers", "information_platforms"
 end
