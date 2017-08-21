@@ -1,6 +1,24 @@
 
 
 <body>
+
+<div class="nav-md">
+
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left-col">
+      <div class="left-col scroll_view">
+        <div class="main_menu_side hidden-print main_menu">
+          <div class="menu_section active">
+            <h3>Explorer</h3>
+            <ul class="nav side_menu">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="class right_col">
        <h1>Queries#new</h1>
        <p>Find me in app/views/queries/new.html.erb</p>
        <%= simple_form_for [@query] do |f| %>
@@ -10,6 +28,11 @@
        <% end %>
        <!-- preparing a DOM with width and height for ECharts -->
        <div id="main" style="width: 600px;height:400px;"></div>
+
+    </div>
+  </div>
+</div>
+</div>
        <% content_for(:after_js) do %>
        <%= javascript_tag do %>
        // initialize echarts instance with prepared DOM
