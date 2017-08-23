@@ -1,19 +1,42 @@
-.nav-md .container.body .col-md-3.left_col {
-    min-height: 100%;
-    width: 230px;
-    padding: 0;
-    position: absolute;
-    display: flex;
-    z-index: 1;
+.main_container {
+  display: flex;
 }
 
-.container {
-    width: 100%;
-    padding: 0;
+.sidebar {
+  min-height: 100%;
+  min-width: 75px;
+  background-color: $gray;
+  display: block;
+  color: $light;
 }
 
-.nav-md .container.body .right_col {
-    padding: 10px 20px 0;
-    margin-left: 230px;
+.sidebar_menu {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
 }
+
+
+.sidebar_menu_icon {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar_menu_tracker {
+  width: 5px;
+  height: 30px;
+  background-color: $green;
+}
+
+.sidebar_menu_icon_content{
+  flex: 1 0 auto;
+  text-align: center;
+}
+
+.sidebar_menu_text {
+  font-size: 10px;
+}
+
+
 

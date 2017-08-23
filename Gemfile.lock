@@ -96,7 +96,7 @@ GEM
       jquery-rails
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-    forest_liana (1.6.17)
+    forest_liana (1.7.3)
       arel-helpers
       bcrypt
       groupdate
