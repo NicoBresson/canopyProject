@@ -1,6 +1,68 @@
 
 
 <body>
+
+  <div class="main_container">
+    <div class="sidebar">
+      <div class="sidebar_menu">
+        <div class="sidebar_menu_icon">
+          <div class="sidebar_menu_tracker active"></div>
+          <div class="sidebar_menu_icon_content">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+          <div class="sidebar_menu_text">
+            <p>Company<br>Analysis</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar_menu">
+        <div class="sidebar_menu_icon">
+          <div class="sidebar_menu_tracker "></div>
+          <div class="sidebar_menu_icon_content">
+            <i class="fa fa-cubes" aria-hidden="true"></i>
+          <div class="sidebar_menu_text">
+            <p>Benchmark<br>Analysis</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar_menu">
+        <div class="sidebar_menu_icon">
+          <div class="sidebar_menu_tracker "></div>
+          <div class="sidebar_menu_icon_content">
+            <i class="fa fa-industry" aria-hidden="true"></i>
+          <div class="sidebar_menu_text">
+            <p>Industry<br>Analysis</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub_sidebar">
+        <div class="sub_sidebar_menu_text active">
+          <p>Company Profile</p>
+        </div>
+        <div class="sub_sidebar_menu_text">
+        <p>Sales Analysis</p>
+        </div>
+        <div class="sub_sidebar_menu_text">
+        <p>Profitability Analysis</p>
+        </div>
+        <div class="sub_sidebar_menu_text">
+        <p>Cash-flow Analysis</p>
+        </div>
+        <div class="sub_sidebar_menu_text">
+        <p>Asset Analysis</p>
+        </div>
+        <div class="sub_sidebar_menu_text">
+        <p>Solvability Analysis</p>
+        </div>
+    </div>
+
+
+
+
+    <div class="main_content">
        <h1>Queries#new</h1>
        <p>Find me in app/views/queries/new.html.erb</p>
        <%= simple_form_for [@query] do |f| %>
@@ -10,6 +72,9 @@
        <% end %>
        <!-- preparing a DOM with width and height for ECharts -->
        <div id="main" style="width: 600px;height:400px;"></div>
+    </div>
+  </div>
+
        <% content_for(:after_js) do %>
        <%= javascript_tag do %>
        // initialize echarts instance with prepared DOM
