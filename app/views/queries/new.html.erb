@@ -71,11 +71,12 @@
         Time range (to be)
       </div>
       <div class="parameter_sompany_search_bar">
-        Search bar (to be)
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="Company name" aria-label="Search">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </div>
-       <h1>Queries#new</h1>
-       <p>Find me in app/views/queries/new.html.erb</p>
        <%= simple_form_for [@query] do |f| %>
        <%= f.input :start_time %>
        <%= f.input :start_time %>
