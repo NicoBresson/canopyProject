@@ -63,8 +63,20 @@
 
 
     <div class="main_content">
-       <h1>Queries#new</h1>
-       <p>Find me in app/views/queries/new.html.erb</p>
+    <div class="parameters_content">
+      <div class="parameter_periodicity">
+        Periodicity selector (to be)
+      </div>
+      <div class="parameter_time_range">
+        Time range (to be)
+      </div>
+      <div class="parameter_sompany_search_bar">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="Company name" aria-label="Search">
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
        <%= simple_form_for [@query] do |f| %>
        <%= f.input :start_time %>
        <%= f.input :start_time %>
