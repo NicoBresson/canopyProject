@@ -1,0 +1,9 @@
+.parameters_content {
+  display: flex;
+  height: 20px;
+  justify-content: space-around;
+}
+
+.parameters_content:first-child{
+  flex: 0 0 30%;
+}
